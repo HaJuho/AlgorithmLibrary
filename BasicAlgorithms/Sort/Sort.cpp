@@ -75,8 +75,6 @@ void merge_sort(int a[], int begin, int end, int buf[])
 	}
 	while (f != mid)
 		buf[i++] = a[f++];
-	while (s != end)
-		buf[i++] = a[s++];
 #endif
 
 	memcpy(&a[begin], buf, sizeof(int) * (end - begin));
