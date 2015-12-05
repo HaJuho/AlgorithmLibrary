@@ -40,7 +40,7 @@ class HashBucket {
 		}
 	}
 
-	HashNode* findNode(int key);
+	HashNode* findNode(int key) const;
 	HashNode* removeNode(int key);
 	bool insertNode(int key, int val);
 	bool insertNode(HashNode* node);
@@ -54,17 +54,17 @@ class HashTable {
 	HashTable() : bsize(DEF_BUCKET_SIZE), buckets(new HashBucket[DEF_BUCKET_SIZE]) {}
 	~HashTable() { delete[] buckets; }
 
-	int hash(int key);
+	int hash(int key) const;
 	void rehash();
-	HashBucket* findBucket(int key);
+	HashBucket* findBucket(int key) const;
 public:
-	bool contains(int key);
+	bool contains(int key) const;
 	bool insert(int key, int val);
-	int get(int key);
+	int get(int key) const;
 	int remove(int key);
 };
 
-HashNode* HashBucket::findNode(int key)
+HashNode* HashBucket::findNode(int key) const
 {
 	HashNode* node = head;
 	while (node != NULL && node->key != key)
@@ -116,7 +116,7 @@ bool HashBucket::insertNode(HashNode* node)
 	return true;
 }
 
-int HashTable::hash(int key)
+int HashTable::hash(int key) const
 {
 	return key;
 }
@@ -137,12 +137,12 @@ void HashTable::rehash()
 	bsize = nbsize;
 }
 
-HashBucket* HashTable::findBucket(int key)
+HashBucket* HashTable::findBucket(int key) const
 {
 	return &buckets[hash(key) % bsize];
 }
 
-bool HashTable::contains(int key)
+bool HashTable::contains(int key) const
 {
 	return findBucket(key)->findNode(key) != NULL;
 }
@@ -159,7 +159,7 @@ bool HashTable::insert(int key, int data)
 	return false;
 }
 
-int HashTable::get(int key)
+int HashTable::get(int key) const
 {
 	HashNode* node = findBucket(key)->findNode(key);
 	return node == NULL ? DEF_DATA_VAL : node->val;

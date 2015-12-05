@@ -62,7 +62,7 @@ bool next_perm(RandomIterator begin, RandomIterator end)
 	if (it == begin)
 		return false;
 	else {
-		auto it1 = it - 1;
+		RandomIterator it1 = it - 1;
 		RandomIterator it2 = upper_bound(it, end, *it1);
 		swap(*it1, *it2);
 		return true;
