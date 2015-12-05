@@ -10,10 +10,12 @@
 
 using namespace std;
 
-static const int MAXN = 100;
+static const int DEN = 1000000007;
 
-// 1. memoization
-static long long cache1[MAXN + 1];
+static const int MAXN = 10000;
+
+// 1. memoization -> recursion overhead. stack overflow.
+static int cache1[MAXN + 1];
 
 void init_cache1()
 {
@@ -21,7 +23,7 @@ void init_cache1()
 		cache1[i] = -1;
 }
 
-long long fibonacci1(int n)
+int fibonacci1(int n)
 {
 	if (cache1[n] >= 0)
 		return cache1[n];
@@ -29,33 +31,33 @@ long long fibonacci1(int n)
 		return cache1[0] = 0;
 	if (n == 1)
 		return cache1[1] = 1;
-	return cache1[n] = fibonacci1(n - 1) + fibonacci1(n - 2);
+	int v = fibonacci1(n - 1) + fibonacci1(n - 2);
+	return cache1[n] = v > DEN ? v - DEN : v;
 }
 
-// 2. 반복적 DP -> 공간 절약. 또는 직접 계산??.
-long long fibonacci2(int n)
+// 2. 반복적 DP -> 공간 절약. 또는 직접 계산??. 여러 번 호출한다면 cache하는 것이 좋을 수도...
+int fibonacci2(int n)
 {
 	if (n == 0)
 		return 0;
-	if (n == 1)
-		return 1;
-	long long fn1 = 1;
-	long long fn2 = 0;
-	for (int i = 2; i < n; ++i) {
-		long long fn = fn1 + fn2;
+	int fn1 = 1;
+	int fn2 = 0;
+	for (int i = 2; i <= n; ++i) {
+		int fn = fn1 + fn2;
+		fn = fn > DEN ? fn - DEN : fn;
 		fn2 = fn1;
 		fn1 = fn;
 	}
-	return fn1 + fn2;
+	return fn1;
 }
 
 int main(int argc, char* argv[])
 {
 	init_cache1();
 
-	int ns[] = { 4, 0, 10, 1, 2, 20, 40, 60, 80, 100 };
+	int ns[] = { 4, 0, 10, 1, 2, 5, 3, 60, 80, 100, 1000 };
 	for (int n : ns) {
-		printf("%d : %lld %lld\n", n, fibonacci1(n), fibonacci2(n));
+		printf("%d : %d %d\n", n, fibonacci1(n), fibonacci2(n));
 	}
 	return 0;
 }

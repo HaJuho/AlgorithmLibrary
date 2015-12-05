@@ -12,7 +12,7 @@ using namespace std;
 static const int MAXN = 10000;
 
 /*
-방법1
+방법1. O(N) 시간. O(N) 공간.
 M(k) : 수열 s[0], s[1], ... s[k]의 연속부분수열의 합 중 최대
 c(k) : s[0], ... s[k]만 포함하고 s[k]는 꼭 포함하는 연속부분수열의 합 중 최대
 c(0)=s[0]
@@ -41,7 +41,7 @@ int find_max_consecutive_sum1(int s[], int n)
 }
 
 /*
-방법2
+방법2. O(N) 시간. O(1) 공간.
 방법1과 다르지 않음. cache에 저장하지 않고 바로 M(k)를 계산하는 방식임.
 최소 하나의 원소를 고르는 방식일 때 조금 개념이 헷갈림.
 */

@@ -10,41 +10,46 @@
 
 using namespace std;
 
-static const int MAXN = 20;
+static const int DEN = 1000000007;
 
-// 1. memoization
-static long long cache1[MAXN + 1];
+static const int MAXN = 10000;
+
+// 1. memoization -> recursion overhead. stack overflow.
+static int cache1[MAXN + 1];
 
 void init_cache1()
 {
 	for (int i = 0; i <= MAXN; ++i)
-		cache1[i] = 0;
+		cache1[i] = -1;
 }
 
-long long factorial1(int n)
+int factorial1(int n)
 {
-	if (cache1[n] > 0)
+	if (cache1[n] >= 0)
 		return cache1[n];
 	if (n == 0 || n == 1)
 		return cache1[n] = 1;
-	return cache1[n] = n * factorial1(n - 1);
+	long long v = static_cast<long long>(n) * factorial1(n - 1);
+	return cache1[n] = static_cast<int>(v % DEN);
 }
 
-// 2. 반복적 DP -> 공간 절약. 또는 직접 계산??.
-long long factorial2(int n)
+// 2. 반복적 DP -> 공간 절약. 또는 직접 계산??. 여러 번 호출한다면 cache하는 것이 좋을 수도...
+int factorial2(int n)
 {
 	long long f = 1;
-	for (int i = 1; i <= n; ++i)
+	for (int i = 1; i <= n; ++i) {
 		f *= i;
-	return f;
+		f %= DEN;
+	}
+	return static_cast<int>(f);
 }
 
 int main(int argc, char* argv[])
 {
 	init_cache1();
-	int ns[] = { 4, 0, 10, 1, 2, 12, 14, 16, 18, 20 };
+	int ns[] = { 4, 0, 10, 1, 2, 12, 14, 16, 18, 20, 4000 };
 	for (int n : ns) {
-		printf("%d : %lld %lld\n", n, factorial1(n), factorial2(n));
+		printf("%d : %d %d\n", n, factorial1(n), factorial2(n));
 	}
 	return 0;
 }
