@@ -1,4 +1,4 @@
-#ifndef __ENUMERATE_REP_COMBINATION_HPP__
+﻿#ifndef __ENUMERATE_REP_COMBINATION_HPP__
 #define __ENUMERATE_REP_COMBINATION_HPP__
 
 template<typename RandomIterator, typename Predicate>

@@ -1,4 +1,4 @@
-#ifndef __ENUMERATE_SUBSETS_HPP__
+﻿#ifndef __ENUMERATE_SUBSETS_HPP__
 #define __ENUMERATE_SUBSETS_HPP__
 
 template<typename RandomIterator, typename Predicate>
