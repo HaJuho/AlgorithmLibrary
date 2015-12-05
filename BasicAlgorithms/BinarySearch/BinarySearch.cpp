@@ -122,7 +122,7 @@ int searchinrotated(const int a[], int first, int last, int key)
 	return (p == last + 1 || a[p] != key) ? -1 : p;
 }
 
-int searchinrotated2(const int a[], int first, int last, int key)
+int searchinrotated_nodup(const int a[], int first, int last, int key)
 {
 	// pre: first > last OR all other pre conditions
 	// pre: a[first, last] has no duplicate elements
@@ -138,19 +138,19 @@ int searchinrotated2(const int a[], int first, int last, int key)
 		return mid;
 	if (a[first] <= a[mid]) {
 		if (a[first] <= key && key < a[mid])
-			return searchinrotated2(a, first, mid - 1, key);
+			return searchinrotated_nodup(a, first, mid - 1, key);
 		else
-			return searchinrotated2(a, mid + 1, last, key);
+			return searchinrotated_nodup(a, mid + 1, last, key);
 	}
 	else { // a[mid] < a[first]
 		if (a[mid] < key && key <= a[last])
-			return searchinrotated2(a, mid + 1, last, key);
+			return searchinrotated_nodup(a, mid + 1, last, key);
 		else
-			return searchinrotated2(a, first, mid - 1, key);
+			return searchinrotated_nodup(a, first, mid - 1, key);
 	}
 }
 
-int findkthvalfromtwo(const int a[], int lena, int b[], int lenb, int k)
+int findkthvalfromtwosorted(const int a[], int lena, int b[], int lenb, int k)
 {
 	// pre: a[0, lena) is sorted in ascending order
 	// pre: b[0, lenb) is sorted in ascending order
