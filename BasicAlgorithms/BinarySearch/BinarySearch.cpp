@@ -1,6 +1,8 @@
 ﻿#include <cstdio>
 #include <cstdlib>
 
+#include <algorithm>
+
 using namespace std;
 
 int lowerbound(const int a[], int begin, int end, int key)
@@ -122,20 +124,65 @@ int searchinrotated(const int a[], int first, int last, int key)
 
 int searchinrotated2(const int a[], int first, int last, int key)
 {
+	// pre: first > last OR all other pre conditions
+	// pre: a[first, last] has no duplicate elements
 	// pre: first <= pivot <= last
-	// pre: a[first, last] has no equal element
 	// pre: a[first, pivot) is sorted in ascending order
 	// pre: a[pivot, last] is sorted in ascending order
 	// pre: a[first] > a[last] if first < pivot
 	// pre: a[pivot-1] > a[pivot] if first < pivot
-	int pivot = findrotationpivot(a, first, last);
-	int p = key < a[first] ? lowerbound(a, pivot, last + 1, key) : lowerbound(a, first, pivot, key);
-	return (p == last + 1 || a[p] != key) ? -1 : p;
+	if (first > last)
+		return -1;
+	int mid = first + ((last - first) >> 1);
+	if (a[mid] == key)
+		return mid;
+	if (a[first] <= a[mid]) {
+		if (a[first] <= key && key < a[mid])
+			return searchinrotated2(a, first, mid - 1, key);
+		else
+			return searchinrotated2(a, mid + 1, last, key);
+	}
+	else { // a[mid] < a[first]
+		if (a[mid] < key && key <= a[last])
+			return searchinrotated2(a, mid + 1, last, key);
+		else
+			return searchinrotated2(a, first, mid - 1, key);
+	}
 }
 
 int findkthvalfromtwo(const int a[], int lena, int b[], int lenb, int k)
 {
-	return 0;
+	// pre: a[0, lena) is sorted in ascending order
+	// pre: b[0, lenb) is sorted in ascending order
+	if (k >= lena + lenb)
+		return -987654321;
+	// assert: k < lena + lenb
+	if (k < lena && a[k] <= b[0])
+		return a[k];
+	if (k < lenb && b[k] <= a[0])
+		return b[k];
+
+	int first = max(0, k - lenb);
+	int last = min(k, lena);
+	// virtual: a[lena] = inf
+	// virtual: b[lenb] = inf
+	// loop invariant: first < last
+	// loop invariant: a[first] < b[k-first]
+	// loop invariant: b[k-last] <= a[last]
+	while (first + 1 < last) {
+		int mid = first + ((last - first) >> 1);
+		// assert: first < mid < last
+		if (a[mid] < b[k - mid])
+			first = mid;
+		else // b[k-mid] <= a[mid]
+			last = mid;
+	}
+	// assert: first+1 >= last && first < last... first+1 == last
+	// assert: a[first] < b[k-first]
+	// assert: b[k-last] <= a[last]
+	// assert: a[first] <= a[last]
+	// assert: b[k-last] <= b[k-first]
+	return max(a[first], b[k - last]);
 }
 
 int main(int argc, char* argv[])
