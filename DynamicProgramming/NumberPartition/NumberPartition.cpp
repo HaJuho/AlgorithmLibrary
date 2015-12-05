@@ -1,16 +1,16 @@
-#include <cstdlib>
+ï»¿#include <cstdlib>
 #include <cstdio>
 #include <cstring>
 
 #include <string>
 
 /*
-m/n partition: nÀ» m ÀÌÇÏÀÇ ÀÚ¿¬¼ö·Î¸¸ ³ªÅ¸³»´Â ¹æ¹ı.
-* ´ÙÀ½ Á¡È­½Ä ÀÌ¿ë.
+m/n partition: nì„ m ì´í•˜ì˜ ìì—°ìˆ˜ë¡œë§Œ ë‚˜íƒ€ë‚´ëŠ” ë°©ë²•.
+* ë‹¤ìŒ ì í™”ì‹ ì´ìš©.
 1) p(0,m)=1
-2) n<mÀÌ¸é p(n,m)=p(n,n)
-3) n>=m, n>0ÀÌ¸é, p(n,m)=p(n-1,1)+p(n-2,2)+...+p(n-m,m)
-¶Ç´Â n>=mÀÌ¸é, p(n,m)=p(n-m,m)+p(n,m-1) °ü°è½ÄÀ» ÀÌ¿ëÇÒ ¼öµµ ÀÖ´Ù.
+2) n<mì´ë©´ p(n,m)=p(n,n)
+3) n>=m, n>0ì´ë©´, p(n,m)=p(n-1,1)+p(n-2,2)+...+p(n-m,m)
+ë˜ëŠ” n>=mì´ë©´, p(n,m)=p(n-m,m)+p(n,m-1) ê´€ê³„ì‹ì„ ì´ìš©í•  ìˆ˜ë„ ìˆë‹¤.
 */
 
 #define MAXN 200
