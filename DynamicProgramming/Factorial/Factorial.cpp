@@ -14,6 +14,12 @@ static const int DEN = 1000000007;
 
 static const int MAXN = 10000;
 
+// F(n) = n!
+// F(1) = 1
+// F(n) = n * F(n-1) for n > 1
+// 시간복잡도 O(N)
+// 공간복잡도 O(N). 반복적 DP에서는 O(1)으로 줄일 수 있음.
+
 // 1. memoization -> recursion overhead. stack overflow.
 static int cache1[MAXN + 1];
 

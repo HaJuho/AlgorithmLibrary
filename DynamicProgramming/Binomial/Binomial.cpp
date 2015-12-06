@@ -14,6 +14,13 @@ static const int DEN = 1000000007;
 
 static const int MAXN = 10000;
 
+// 이항 계수 구하기
+// C(n,0) = 1
+// C(n,n) = 1
+// C(n,r) = C(n-1,r-1) + C(n-1,r) for 1 < r < n
+// 시간복잡도 O(N^2)
+// 공간복잡도 O(N^2). 반복적 DP에서는 O(N)으로 줄일 수 있음.
+
 // 1. memoization -> recursion overhead. stack overflow.
 static int cache1[MAXN + 1][MAXN + 1];
 
@@ -54,11 +61,12 @@ int binomial2(int n, int r)
 	return cache2[n][r];
 }
 
+#define NUMELEM(X) (sizeof(X) / sizeof(int))
 int main(int argc, char* argv[])
 {
 	init_cache1();
 	int testset[] = { 5, 3, 10, 7, 2, 2, 50, 25, 1000, 500 };
-	for (int i = 0; i < sizeof(testset) / sizeof(int); i += 2) {
+	for (int i = 0; i < NUMELEM(testset); i += 2) {
 		int n = testset[i];
 		int r = testset[i + 1];
 		printf("%d/%d: %d %d\n", n, r, binomial1(n, r), binomial2(n, r));

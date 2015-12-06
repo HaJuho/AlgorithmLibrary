@@ -11,41 +11,42 @@ using namespace std;
 
 static const int MAXN = 10000;
 
-/*
-방법1. O(N) 시간. O(N) 공간.
-M(k) : 수열 s[0], s[1], ... s[k]의 연속부분수열의 합 중 최대
-c(k) : s[0], ... s[k]만 포함하고 s[k]는 꼭 포함하는 연속부분수열의 합 중 최대
-c(0)=s[0]
-k>1이면, c(k)=max(c(k-1)+s[k],s[k])
-M(0)=s[0]
-k>1이면, M(k)=max(c(k),M(k-1))=max(c(k),c(k-1),M(k-2))=..=max(c(k),c(k-1),..,c(0))
-*/
-static int cache[MAXN];
+// A[0...n-1]에서 연속 부분 수열의 합의 최대값 구하기
+// 방법 1
+// M(k) : 수열 A[0], A[1], ... A[k]의 연속부분수열의 합 중 최대
+// B(k) : A[0], ... A[k] 중 A[k]를 포함하는 연속부분수열의 합 중 최대
+// B(0) = A[0]
+// B(k) = max(A[k]+B(k-1),A[k]) for k > 1
+// M(0) = B(0)
+// M(k) = max(B(k),M(k-1)) = max(B(k),B(k-1),M(k-2)) = .. = max(B(k),B(k-1),..,B(0)) for k > 1
+// 시간복잡도 O(N)
+// 공간복잡도 O(N)
+static int cache1[MAXN];
 
-int find_max_consecutive_sum1(int s[], int n)
+int max_consecutive_sum1(int A[], int n)
 {
 	// caching
 #ifdef SELECT_AT_LEAST_ONE
-	cache[0] = s[0];
+	cache1[0] = A[0];
 #else
-	cache[0] = max(s[0], 0);
+	cache1[0] = max(A[0], 0); // cache1 >= 0
 #endif
 	for (int i = 1; i < n; ++i)
 #ifdef SELECT_AT_LEAST_ONE
-		cache[i] = max(s[i] + cache[i - 1], s[i]);
+		cache1[i] = max(A[i] + cache1[i - 1], A[i]);
 #else
-		cache[i] = max(s[i] + cache[i - 1], 0);
+		cache1[i] = max(A[i] + cache1[i - 1], 0); // cache1 >= 0
 #endif
 
-	return *max_element(cache, cache + n);
+	return *max_element(cache1, cache1 + n);
 }
 
-/*
-방법2. O(N) 시간. O(1) 공간.
-방법1과 다르지 않음. cache에 저장하지 않고 바로 M(k)를 계산하는 방식임.
-최소 하나의 원소를 고르는 방식일 때 조금 개념이 헷갈림.
-*/
-int find_max_consecutive_sum2(int s[], int n)
+// 방법 2
+// 방법1과 다르지 않음. B(k)를 cache에 저장하지 않고 바로 M(k)를 계산하는 방식임.
+// 최소 하나의 원소를 고르는 방식일 때 조금 헷갈림.
+// 시간복잡도 O(N)
+// 공간복잡도 O(1)
+int max_consecutive_sum2(int s[], int n)
 {
 #ifdef SELECT_AT_LEAST_ONE
 	int max_so_far = 0x80000000;
@@ -65,6 +66,7 @@ int find_max_consecutive_sum2(int s[], int n)
 	return max_so_far;
 }
 
+#define NUMELEM(X) (sizeof(X) / sizeof(int))
 int main()
 {
 	//int testset[] = {33, 36, -73, 15, 43, -17, 36, -28, -1, 21};
@@ -74,8 +76,8 @@ int main()
 	//int testset[] = { -1 };
 	int testset[] = { -1, 2 };
 
-	int mval1 = find_max_consecutive_sum1(testset, sizeof(testset) / sizeof(int));
-	int mval2 = find_max_consecutive_sum2(testset, sizeof(testset)/sizeof(int));
+	int mval1 = max_consecutive_sum1(testset, NUMELEM(testset));
+	int mval2 = max_consecutive_sum2(testset, NUMELEM(testset));
 	printf("%d %d\n", mval1, mval2);
 
 	return 0;

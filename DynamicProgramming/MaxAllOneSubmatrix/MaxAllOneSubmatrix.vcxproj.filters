@@ -11,7 +11,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MaxAllZeroRectAndSquare.cpp">
+    <ClCompile Include="MaxAllOneSubmatrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
