@@ -1,4 +1,4 @@
-#include <cstdio>
+ï»¿#include <cstdio>
 #include <cstdlib>
 #include <cstdint>
 #include <cstring>
@@ -37,7 +37,7 @@ int catalan1(int n)
 	return cache1[n] = static_cast<int>(count);
 }
 
-// 2. ¹İº¹Àû DP -> memoizationÀÇ ÃÊ±âÈ­ »ı·« °¡´É.
+// 2. ë°˜ë³µì  DP -> memoizationì˜ ì´ˆê¸°í™” ìƒëµ ê°€ëŠ¥.
 static int cache2[MAXN + 1];
 static int initialized2 = 0;
 

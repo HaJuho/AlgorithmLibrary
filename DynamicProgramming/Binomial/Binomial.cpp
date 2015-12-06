@@ -1,4 +1,4 @@
-#include <cstdio>
+ï»¿#include <cstdio>
 #include <cstdlib>
 #include <cstdint>
 #include <cstring>
@@ -34,7 +34,7 @@ int binomial1(int n, int r)
 	return cache1[n][r] = v > DEN ? v - DEN : v;
 }
 
-// 2. ¹İº¹Àû DP -> memoizationÀÇ ÃÊ±âÈ­ »ı·« °¡´É. ²À ÇÊ¿äÇÏÁö ¾ÊÀº °è»ê Æ÷ÇÔ.
+// 2. ë°˜ë³µì  DP -> memoizationì˜ ì´ˆê¸°í™” ìƒëµ ê°€ëŠ¥. ê¼­ í•„ìš”í•˜ì§€ ì•Šì€ ê³„ì‚° í¬í•¨.
 static int cache2[MAXN + 1][MAXN + 1];
 static int initialized2 = 0;
 
