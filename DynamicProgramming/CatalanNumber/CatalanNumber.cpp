@@ -16,9 +16,9 @@ static const int MAXN = 10000;
 
 // Catalan 수 구하기
 // C(0) = 1
-// C(n) = sum_i=0_n-1 (C(i)*C(n-1-i))
+// C(n) = sum(C(i)*C(n-1-i) for i<=0<n)
 // 시간복잡도 O(N^2)
-// 공간복잡도 O(N^2). 반복적 DP에서는 O(N)으로 줄일 수 있음.
+// 공간복잡도 O(N)
 
 // 1. memoization -> recursion overhead. stack overflow.
 static int cache1[MAXN + 1];

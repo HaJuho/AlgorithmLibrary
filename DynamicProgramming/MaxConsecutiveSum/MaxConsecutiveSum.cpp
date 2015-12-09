@@ -16,9 +16,9 @@ static const int MAXN = 10000;
 // M(k) : 수열 A[0], A[1], ... A[k]의 연속부분수열의 합 중 최대
 // B(k) : A[0], ... A[k] 중 A[k]를 포함하는 연속부분수열의 합 중 최대
 // B(0) = A[0]
-// B(k) = max(A[k]+B(k-1),A[k]) for k > 1
+// B(k) = max(A[k]+B(k-1),A[k]), if k > 1
 // M(0) = B(0)
-// M(k) = max(B(k),M(k-1)) = max(B(k),B(k-1),M(k-2)) = .. = max(B(k),B(k-1),..,B(0)) for k > 1
+// M(k) = max(B(k),M(k-1)) = max(B(k),B(k-1),M(k-2)) = .. = max(B(k),B(k-1),..,B(0)), if k > 1
 // 시간복잡도 O(N)
 // 공간복잡도 O(N)
 static int cache1[MAXN];

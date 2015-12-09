@@ -23,7 +23,7 @@ static const int MAXM = 1000;
 // C(i,0) = 0
 // C(i,j) = 1 + C(i-1,j-1) if A[i-1]==B[j-1] for i > 0, j > 0
 // C(i,j) = 0 if A[i-1]!=B[j-1] for i > 0, j > 0
-// M(i,j) = max(C(a,b) for all 0<=a<=i, 0<=b<=j)
+// M(i,j) = max(C(a,b), for 0<=a<=i, 0<=b<=j)
 // 시간복잡도 O(NM)
 // 공간복잡도 O(NM). 또는 O(N)이나 O(M)으로 줄일 수 있음
 

@@ -17,7 +17,7 @@ static const int MAXN = 10000;
 // 이항 계수 구하기
 // C(n,0) = 1
 // C(n,n) = 1
-// C(n,r) = C(n-1,r-1) + C(n-1,r) for 1 < r < n
+// C(n,r) = C(n-1,r-1) + C(n-1,r) if 1 < r < n
 // 시간복잡도 O(N^2)
 // 공간복잡도 O(N^2). 반복적 DP에서는 O(N)으로 줄일 수 있음.
 

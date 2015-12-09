@@ -21,8 +21,8 @@ static const int MAXM = 1000;
 // LCS(i,j) = A[0...i-1]와 B[0...j-1] 사이의 LCS 길이
 // LCS(0,j) = 0
 // LCS(i,0) = 0
-// LCS(i,j) = 1 + LCS(i-1,j-1) if A[i-1]==B[j-1] for i > 0, j > 0
-// LCS(i,j) = max(LCS(i-1,j),LCS(i,j-1)) if A[i-1]!=B[j-1] for i > 0, j > 0
+// LCS(i,j) = 1 + LCS(i-1,j-1), if i > 0, j > 0, A[i-1]==B[j-1]
+// LCS(i,j) = max(LCS(i-1,j),LCS(i,j-1)), if i > 0, j > 0, A[i-1]!=B[j-1]
 // 시간복잡도 O(NM)
 // 공간복잡도 O(NM). 또는 O(N)이나 O(M)으로 줄일 수 있음
 
