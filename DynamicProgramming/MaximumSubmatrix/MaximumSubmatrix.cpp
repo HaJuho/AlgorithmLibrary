@@ -42,7 +42,7 @@ int max_submatrix1(int A[], int n, int m)
 #endif
 	for (int begin = 0; begin < n; ++begin) {
 		for (int end = begin + 1; end <= n; ++end) {
-			// max_subarray for [first + 1, last]
+			// max_subarray for [begin, end-1]
 			int sum_ending_here = 0;
 			for (int j = 0; j < m; ++j) {
 				int s = b[end][j] - b[begin][j];
