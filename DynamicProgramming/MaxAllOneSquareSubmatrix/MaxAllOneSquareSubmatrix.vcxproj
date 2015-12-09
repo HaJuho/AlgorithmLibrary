@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{77b8b760-519a-4027-adde-325432afb129}</ProjectGuid>
+    <ProjectGuid>{28a0b079-3827-4f2a-b3d1-f5859aef5bc0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>MaxAllOneSubmatrix</RootNamespace>
+    <RootNamespace>MaxAllOneSquareSubmatrix</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -141,7 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MaxAllOneSubmatrix.cpp" />
+    <ClCompile Include="MaxAllOneSquareSubmatrix.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
