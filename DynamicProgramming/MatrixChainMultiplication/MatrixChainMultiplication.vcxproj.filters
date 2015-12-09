@@ -11,7 +11,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MaxConsecutiveSum.cpp">
+    <ClCompile Include="MatrixChainMultiplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

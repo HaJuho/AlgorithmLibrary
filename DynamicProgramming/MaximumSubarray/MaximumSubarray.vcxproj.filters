@@ -11,7 +11,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FindMatchingSum.cpp">
+    <ClCompile Include="MaximumSubarray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

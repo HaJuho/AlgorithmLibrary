@@ -29,13 +29,13 @@ void init_cache1()
 		cache1[i] = -1;
 }
 
-int tiling1(int n)
+int tiling2xn1(int n)
 {
 	if (cache1[n] >= 0)
 		return cache1[n];
 	if (n == 0 || n == 1)
 		return cache1[n] = 1;
-	int v = tiling1(n - 1) + tiling1(n - 2);
+	int v = tiling2xn1(n - 1) + tiling2xn1(n - 2);
 	return cache1[n] = v > DEN ? v - DEN : v;
 }
 
@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 
 	int ns[] = { 4, 0, 10, 1, 2, 5, 3, 60, 80, 100, 1000 };
 	for (int n : ns) {
-		printf("%d : %d\n", n, tiling1(n));
+		printf("%d : %d\n", n, tiling2xn1(n));
 	}
 	return 0;
 }

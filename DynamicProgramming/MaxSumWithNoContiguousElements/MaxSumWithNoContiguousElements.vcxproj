@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{65baa33e-ee72-4e86-8a8a-5cbbf0e8bdf6}</ProjectGuid>
+    <ProjectGuid>{cc675ff6-324a-4065-ad81-a68923a2083c}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>MaxConsecutiveSum</RootNamespace>
+    <RootNamespace>MaxSumWithNoContiguousElements</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -141,7 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MaxConsecutiveSum.cpp" />
+    <ClCompile Include="MaxSumWithNoContiguousElements.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

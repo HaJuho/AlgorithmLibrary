@@ -1,6 +1,4 @@
-﻿/*****************************************************************************
-*****************************************************************************/
-#include <cstdio>
+﻿#include <cstdio>
 #include <cstdlib>
 #include <cstdint>
 #include <cstring>
@@ -26,7 +24,7 @@ static const int MAXT = 10000;
 // 1. 공간 O(NT)
 static bool cache1[MAXN + 1][MAXT + 1];
 
-bool find_matching_sum1(int A[], int n, int T)
+bool find_subsequence_sum1(int A[], int n, int T)
 {
 	cache1[0][0] = true;
 	for (int i = 1; i <= T; ++i)
@@ -44,7 +42,7 @@ bool find_matching_sum1(int A[], int n, int T)
 // 2. 공간 O(T)
 static bool cache2[MAXT + 1];
 
-bool find_matching_sum2(int A[], int n, int T)
+bool find_subsequence_sum2(int A[], int n, int T)
 {
 	cache2[0] = true;
 	for (int i = 1; i <= T; ++i)
@@ -62,11 +60,11 @@ int main(int argc, char* argv[])
 {
 	//int testset[] = { 11, 17, 45, 3 };
 	int testset[] = { 6, 9, 13, 14, 20, 21, 22, 30, 49, 55 };
-	printf("%d\n", find_matching_sum1(testset, NUMELEM(testset), 20));
-	printf("%d\n", find_matching_sum2(testset, NUMELEM(testset), 20));
-	printf("%d\n", find_matching_sum1(testset, NUMELEM(testset), 18));
-	printf("%d\n", find_matching_sum2(testset, NUMELEM(testset), 18));
-	printf("%d\n", find_matching_sum1(testset, NUMELEM(testset), 110));
-	printf("%d\n", find_matching_sum2(testset, NUMELEM(testset), 110));
+	printf("%d\n", find_subsequence_sum1(testset, NUMELEM(testset), 20));
+	printf("%d\n", find_subsequence_sum2(testset, NUMELEM(testset), 20));
+	printf("%d\n", find_subsequence_sum1(testset, NUMELEM(testset), 18));
+	printf("%d\n", find_subsequence_sum2(testset, NUMELEM(testset), 18));
+	printf("%d\n", find_subsequence_sum1(testset, NUMELEM(testset), 110));
+	printf("%d\n", find_subsequence_sum2(testset, NUMELEM(testset), 110));
 	return 0;
 }

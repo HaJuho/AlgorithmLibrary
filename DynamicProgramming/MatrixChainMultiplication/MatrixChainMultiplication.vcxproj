@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{13a8c68e-d470-4083-9811-b8fb59c20e23}</ProjectGuid>
+    <ProjectGuid>{0372c0b3-e73b-4f6e-bfe7-6c1486ce7583}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>MaxNonConsecutiveSum</RootNamespace>
+    <RootNamespace>MatrixChainMultiplication</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -141,7 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MaxNonConsecutiveSum.cpp" />
+    <ClCompile Include="MatrixChainMultiplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

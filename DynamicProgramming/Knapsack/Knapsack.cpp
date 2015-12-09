@@ -1,6 +1,4 @@
-﻿/*****************************************************************************
-*****************************************************************************/
-#include <cstdio>
+﻿#include <cstdio>
 #include <cstdlib>
 #include <cstdint>
 #include <cstring>
@@ -25,7 +23,7 @@ static const int MAXN = 100;
 // 1.
 static int cache1[MAXC + 1];
 
-int knapsack(int W[], int V[], int n, int C)
+int knapsack1(int W[], int V[], int n, int C)
 {
 	cache1[0] = 0;
 	for (int i = 1; i <= C; ++i) {
@@ -44,6 +42,6 @@ int main(int argc, char* argv[])
 {
 	int ws[] = { 3, 5, 7, 4, 3, 9, 2, 9, 5, 10 };
 	int vs[] = { 2, 3, 3, 4, 4, 5, 7, 8, 8, 9 };
-	printf("%d\n", knapsack(ws, vs, NUMELEM(ws), 28));
+	printf("%d\n", knapsack1(ws, vs, NUMELEM(ws), 28));
 	return 0;
 }

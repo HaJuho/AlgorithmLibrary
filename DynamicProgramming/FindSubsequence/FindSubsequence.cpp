@@ -1,6 +1,4 @@
-﻿/*****************************************************************************
-*****************************************************************************/
-#include <cstdio>
+﻿#include <cstdio>
 #include <cstdlib>
 #include <cstdint>
 #include <cstring>
@@ -29,7 +27,7 @@ static const int MAXM = 1000;
 // 1. 공간 O(NM)
 static int cache1[MAXN + 1][MAXM + 1];
 
-int subsequence_num1(int A[], int n, int B[], int m)
+int find_subsequence1(int A[], int n, int B[], int m)
 {
 	cache1[0][0] = 1;
 	for (int i = 1; i <= m; ++i)
@@ -49,7 +47,7 @@ int subsequence_num1(int A[], int n, int B[], int m)
 // 2. 공간 O(M)
 static int cache2[MAXM + 1];
 
-int subsequence_num2(int A[], int n, int B[], int m)
+int find_subsequence2(int A[], int n, int B[], int m)
 {
 	cache2[0] = 1;
 	for (int i = 1; i <= m; ++i)
@@ -69,7 +67,7 @@ int main(int argc, char* argv[])
 {
 	int testseta[] = { 1, 2, 1, 4, 3, 2 };
 	int testsetb[] = { 1, 2 };
-	printf("%d\n", subsequence_num1(testseta, NUMELEM(testseta), testsetb, NUMELEM(testsetb)));
-	printf("%d\n", subsequence_num2(testseta, NUMELEM(testseta), testsetb, NUMELEM(testsetb)));
+	printf("%d\n", find_subsequence1(testseta, NUMELEM(testseta), testsetb, NUMELEM(testsetb)));
+	printf("%d\n", find_subsequence2(testseta, NUMELEM(testseta), testsetb, NUMELEM(testsetb)));
 	return 0;
 }

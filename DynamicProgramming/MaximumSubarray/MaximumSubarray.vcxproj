@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0029d8f6-3eb6-488f-83c1-efc8de465e58}</ProjectGuid>
+    <ProjectGuid>{8f8536d8-fd61-449d-b8b8-bf223e3b38a2}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>FindMatchingSum</RootNamespace>
+    <RootNamespace>MaximumSubarray</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -141,7 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FindMatchingSum.cpp" />
+    <ClCompile Include="MaximumSubarray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />

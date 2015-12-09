@@ -1,6 +1,4 @@
-﻿/*****************************************************************************
-*****************************************************************************/
-#include <cstdio>
+﻿#include <cstdio>
 #include <cstdlib>
 #include <cstdint>
 #include <cstring>
@@ -26,7 +24,7 @@ using namespace juho;
 // C(i, j) = false if others
 // 시간 복잡도 O(N ^ 2)
 // 공간 복잡도 O(N ^ 2).O(N)으로 최적화 가능
-bool wildcard_matching(char* A, char* P)
+bool wildcard_matching1(char* A, char* P)
 {
 	int n = strlen(A);
 	int m = strlen(P);
@@ -56,7 +54,7 @@ int main(int argc, char* argv[])
 	char* testA = "hello";
 	char* testB = "*o";
 
-	printf("%s %s %d\n", testA, testB, wildcard_matching(testA, testB));
+	printf("%s %s %d\n", testA, testB, wildcard_matching1(testA, testB));
 
 	return 0;
 }

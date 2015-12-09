@@ -11,7 +11,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MaxNonConsecutiveSum.cpp">
+    <ClCompile Include="MaxSumWithNoContiguousElements.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

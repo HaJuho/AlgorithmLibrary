@@ -1,6 +1,4 @@
-﻿/*****************************************************************************
-*****************************************************************************/
-#include <cstdio>
+﻿#include <cstdio>
 #include <cstdlib>
 #include <cstdint>
 #include <cstring>
@@ -26,7 +24,7 @@ static const int MAXN = 10000;
 // 1. 공간 O(N)
 static int cache1[MAXN];
 
-int max_non_consecutive_sum1(int A[], int n)
+int max_sum_with_no_contiguous_elements1(int A[], int n)
 {
 #ifdef SELECT_AT_LEAST_ONE
 	cache1[0] = A[0];
@@ -50,8 +48,8 @@ int max_non_consecutive_sum1(int A[], int n)
 #define NUMELEM(X) (sizeof(X) / sizeof(int))
 int main(int argc, char* argv[])
 {
-	//int testset[] = { 10, 1, 1, 7, 9, 5, 1, -9 };
-	int testset[] = {-5, -4, -3, -1, -2, -2, -3, -4, -5};
-	printf("%d\n", max_non_consecutive_sum1(testset, NUMELEM(testset)));
+	int testset[] = { 10, 1, 1, 7, 9, 5, 1, -9 };
+	//int testset[] = { -5, -4, -3, -1, -2, -2, -3, -4, -5 };
+	printf("%d\n", max_sum_with_no_contiguous_elements1(testset, NUMELEM(testset)));
 	return 0;
 }

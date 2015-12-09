@@ -23,7 +23,7 @@ static const int MAXN = 10000;
 // 공간복잡도 O(N)
 static int cache1[MAXN];
 
-int max_consecutive_sum1(int A[], int n)
+int max_subarray1(int A[], int n)
 {
 	// caching
 #ifdef SELECT_AT_LEAST_ONE
@@ -46,7 +46,7 @@ int max_consecutive_sum1(int A[], int n)
 // 최소 하나의 원소를 고르는 방식일 때 조금 헷갈림.
 // 시간복잡도 O(N)
 // 공간복잡도 O(1)
-int max_consecutive_sum2(int s[], int n)
+int max_subarray2(int s[], int n)
 {
 #ifdef SELECT_AT_LEAST_ONE
 	int max_so_far = 0x80000000;
@@ -76,8 +76,8 @@ int main()
 	//int testset[] = { -1 };
 	int testset[] = { -1, 2 };
 
-	int mval1 = max_consecutive_sum1(testset, NUMELEM(testset));
-	int mval2 = max_consecutive_sum2(testset, NUMELEM(testset));
+	int mval1 = max_subarray1(testset, NUMELEM(testset));
+	int mval2 = max_subarray2(testset, NUMELEM(testset));
 	printf("%d %d\n", mval1, mval2);
 
 	return 0;
