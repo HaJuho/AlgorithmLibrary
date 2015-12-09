@@ -33,7 +33,7 @@ int factorial1(int n)
 {
 	if (cache1[n] >= 0)
 		return cache1[n];
-	if (n == 0 || n == 1)
+	if (n == 1)
 		return cache1[n] = 1;
 	long long v = static_cast<long long>(n) * factorial1(n - 1);
 	return cache1[n] = static_cast<int>(v % DEN);
