@@ -1,18 +1,18 @@
 # 동전 환전
 
-1. 가격 C를 n개의 동전 v[i](0<=i<n)로 환전하는 방법의 수는?
+1. 가격 C를 n개의 동전 v[i] (0<=i<n)로 환전하는 방법의 수는?
 
 수분할과 비슷하게 풀어도 된다.
 
 B(i,k) = 0~i까지의 동전을 사용해 가격 k를 환전하는 방법의 수
 
-B(0,k) = 1 if k % v[0] == 0
+B(0,k) = 1, if k % v[0] == 0
 
-B(0,k) = 0 if k % v[0] != 0
+B(0,k) = 0, if k % v[0] != 0
 
-B(i,k) = B(i-1,k) for k < v[i]
+B(i,k) = B(i-1,k), if k < v[i]
 
-B(i,k) = B(i-1,k) + B(i,k-v[i]) for k >= v[i]
+B(i,k) = B(i-1,k) + B(i,k-v[i]), if k >= v[i]
 
 시간 복잡도 O(NC)
 
@@ -24,13 +24,13 @@ B(i,k) = B(i-1,k) + B(i,k-v[i]) for k >= v[i]
 
 D(i,k) = 0~i까지의 동전을 사용해서 돈 k를 환전하는 가장 작은 동전의 수
 
-D(0,k) = k / v[0] if k % v[0] == 0
+D(0,k) = k / v[0], if k % v[0] == 0
 
-D(0,k) = inf if k % v[0] != 0
+D(0,k) = inf, if k % v[0] != 0
 
-D(i,k) = D(i-1,k) for k < v[i]
+D(i,k) = D(i-1,k), if k < v[i]
 
-D(i,k) = min(D(i-1,k), D(i,k-v[i]) + 1) for k >= v[i]
+D(i,k) = min(D(i-1,k), D(i,k-v[i]) + 1), if k >= v[i]
 
 시간 복잡도 O(NC)
 
@@ -42,9 +42,9 @@ E(k) = 돈 k를 환전하는 가장 작은 동전의 수
 
 E(0) = 0
 
-E(k) = inf for k < 0
+E(k) = inf, if k < 0
 
-E(k) = min(E(k - vi) for 0<=i<n) + 1
+E(k) = min(E(k - v[i]), for 0<=i<n) + 1
 
 시간 복잡도 O(NC)
 

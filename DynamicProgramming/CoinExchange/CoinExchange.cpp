@@ -17,10 +17,10 @@ static const int MAXN = 100;
 // 수분할과 비슷하게 풀어도 된다.
 // 여기서는 순차적 DP로 푼다.
 // B(i,k) = 0~i까지의 동전을 사용해 가격 k를 환전하는 방법의 수
-// B(0,k) = 1 if k % v[0] == 0
-// B(0,k) = 0 if k % v[0] != 0
-// B(i,k) = B(i-1,k) for k < v[i]
-// B(i,k) = B(i-1,k) + B(i,k-v[i]) for k >= v[i]
+// B(0,k) = 1, if k % v[0] == 0
+// B(0,k) = 0, if k % v[0] != 0
+// B(i,k) = B(i-1,k), if k < v[i]
+// B(i,k) = B(i-1,k) + B(i,k-v[i]), if k >= v[i]
 // 시간 복잡도 O(NC)
 // -> 모든 table을 순차적으로 다 채우므로 사실 불필요한 계산도 포함
 // -> 필요한 계산만 하려면 수분할에서 처럼 recursion과 memoization을 사용하면 됨.
@@ -68,10 +68,10 @@ int exchanges2(int V[], int n, int C)
 // 가장 적은 수의 동전으로 환전하기. 배낭 문제와 같다?
 // 3.
 // D(i,k) = 0~i까지의 동전을 사용해서 돈 k를 환전하는 가장 작은 동전의 수
-// D(0,k) = k / v0 if k % v0 == 0
-// D(0,k) = inf if k % v0 != 0
-// D(i,k) = D(i-1,k) for k < vi
-// D(i,k) = min(D(i-1,k), D(i,k-vi) + 1) for k >= vi
+// D(0,k) = k / v[0], if k % v[0] == 0
+// D(0,k) = inf, if k % v[0] != 0
+// D(i,k) = D(i-1,k), if k < v[i]
+// D(i,k) = min(D(i-1,k), D(i,k-v[i]) + 1), if k >= v[i]
 // 시간 복잡도 O(NC)
 // 공간 복잡도 O(NC). 반복적 DP로 O(C) 최적화 가능
 static int cache3[MAXC + 1];
@@ -94,8 +94,8 @@ int optimal_exchange3(int V[], int n, int C)
 // 4.
 // E(k) = 돈 k를 환전하는 가장 작은 동전의 수
 // E(0) = 0
-// E(k) = inf for k < 0
-// E(k) = min(E(k - vi) for 0<=i<n) + 1
+// E(k) = inf, if k < 0
+// E(k) = min(E(k - v[i]), for 0<=i<n) + 1
 // 시간 복잡도 O(NC)
 // 공간 복잡도 O(C)
 static int cache4[MAXC + 1];
