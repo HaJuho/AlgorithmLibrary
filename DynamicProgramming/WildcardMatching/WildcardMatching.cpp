@@ -18,7 +18,7 @@ using namespace juho;
 // C(i, j)를 A[0...i]와 P[0...j]가 매칭되는 지 여부라고 하자.
 // C(-1, -1) = true
 // C(i, -1) = false if i >= 0
-// C(-1, j) = C(-1, j - 1) && P[j - 1] == '*' if j >= 0
+// C(-1, j) = C(-1, j - 1) && P[j] == '*' if j >= 0
 // C(i, j) = C(i - 1, j - 1) if i >= 0 && j >= 0 && (A[i] == P[j] || P[j] == '?')
 // C(i, j) = C(i - 1, j) || C(i, j - 1) if i >= 0 && j >= 0 && (P[j] == '*')
 // C(i, j) = false if others

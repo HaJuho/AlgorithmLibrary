@@ -62,7 +62,7 @@ struct Box {
 };
 
 struct SortBox {
-	bool operator()(Box& a, Box& b) {
+	bool operator()(const Box& a, const Box& b) const {
 		return a.w < b.w;
 	}
 };
