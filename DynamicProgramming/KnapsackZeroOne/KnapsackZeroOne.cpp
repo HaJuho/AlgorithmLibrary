@@ -13,15 +13,15 @@ using namespace std;
 static const int MAXC = 10000;
 static const int MAXN = 100;
 
-// 배낭의 용량이 C이고, n개의 물품 각각의 무게가 wi, 가치가 vi(0<=i<n) 일 때, 배낭에 담을 수 있는 물품의 최대 가치는?
+// 배낭의 용량이 C이고, n개의 물품 각각의 무게가 w[i], 가치가 v[i] (0<=i<n) 일 때, 배낭에 담을 수 있는 물품의 최대 가치는?
 // 물건은 최대 하나만 담을 수 있다.
 // B(i,k) = 0~i까지의 물품을 사용해 크기 k인 배낭에 담을 수 있는 최대 가치
 // B(0,k) = 0
 // B(i,0) = 0
-// B(i,k) = B(i-1,k) for k < wi
-// B(i,k) = max(B(i-1,k), B(i-1,k-wi) + vi) for k >= wi
+// B(i,k) = B(i-1,k), if i > 0, k < w[i]
+// B(i,k) = max(B(i-1,k), B(i-1,k-w[i]) + v[i]), if i > 0, k >= w[i]
 // 시간 복잡도 O(NC)
-// 공간 복잡도 O(NC). 순차적 DP를 사용하면 O(C) 가능.
+// 공간 복잡도 O(NC). 반복적 DP로 O(C) 최적화 가능
 
 // 1. 공간 O(NC)
 static int cache1[MAXN + 1][MAXC + 1];
