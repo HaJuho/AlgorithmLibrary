@@ -13,19 +13,19 @@ using namespace std;
 static const int MAXC = 10000;
 static const int MAXN = 100;
 
-// 가격 C를 n개의 동전 vi(0<=i<n)로 환전하는 방법의 수는?
+// 가격 C를 n개의 동전 v[i](0<=i<n)로 환전하는 방법의 수는?
 // 수분할과 비슷하게 풀어도 된다.
 // 여기서는 순차적 DP로 푼다.
 // B(i,k) = 0~i까지의 동전을 사용해 가격 k를 환전하는 방법의 수
-// B(0,k) = 1 if k % v0 == 0
-// B(0,k) = 0 if k % v0 != 0
-// B(i,k) = B(i-1,k) for k < vi
-// B(i,k) = B(i-1,k) + B(i,k-vi) for k >= vi
+// B(0,k) = 1 if k % v[0] == 0
+// B(0,k) = 0 if k % v[0] != 0
+// B(i,k) = B(i-1,k) for k < v[i]
+// B(i,k) = B(i-1,k) + B(i,k-v[i]) for k >= v[i]
 // 시간 복잡도 O(NC)
 // -> 모든 table을 순차적으로 다 채우므로 사실 불필요한 계산도 포함
 // -> 필요한 계산만 하려면 수분할에서 처럼 recursion과 memoization을 사용하면 됨.
 // -> 대신 함수 호출 overhead와 stack overflow 등의 문제 있음.
-// 공간 복잡도 O(NC). O(C)로 줄일 수 있다.
+// 공간 복잡도 O(NC). 반복적 DP로 O(C) 최적화 가능
 
 // 1. 공간 O(NC)
 static int cache1[MAXN][MAXC + 1];
@@ -73,7 +73,7 @@ int exchanges2(int V[], int n, int C)
 // D(i,k) = D(i-1,k) for k < vi
 // D(i,k) = min(D(i-1,k), D(i,k-vi) + 1) for k >= vi
 // 시간 복잡도 O(NC)
-// 공간 복잡도 O(NC). O(C)로 줄일 수 있다.
+// 공간 복잡도 O(NC). 반복적 DP로 O(C) 최적화 가능
 static int cache3[MAXC + 1];
 int optimal_exchange3(int V[], int n, int C)
 {

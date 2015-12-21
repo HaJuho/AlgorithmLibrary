@@ -16,7 +16,7 @@ static const int MAXN = 10000;
 
 // Catalan 수 구하기
 // C(0) = 1
-// C(n) = sum(C(i)*C(n-1-i) for i<=0<n)
+// C(n) = sum(C(i)*C(n-1-i) for 0<=i<n)
 // 시간복잡도 O(N^2)
 // 공간복잡도 O(N)
 

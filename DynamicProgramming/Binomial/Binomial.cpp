@@ -19,7 +19,7 @@ static const int MAXN = 10000;
 // C(n,n) = 1
 // C(n,r) = C(n-1,r-1) + C(n-1,r) if 1 < r < n
 // 시간복잡도 O(N^2)
-// 공간복잡도 O(N^2). 반복적 DP에서는 O(N)으로 줄일 수 있음.
+// 공간복잡도 O(N^2). 반복적 DP로 O(N) 최적화 가능.
 
 // 1. memoization -> recursion overhead. stack overflow.
 static int cache1[MAXN + 1][MAXN + 1];
