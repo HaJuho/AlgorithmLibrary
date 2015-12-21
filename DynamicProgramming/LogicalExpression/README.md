@@ -6,10 +6,13 @@ A[0..n]에 true, false가 주어짐
 
 B[0..n-1]에 연산자가 주어짐
 
-```
 T(i,j) = A[i...j] 까지를 계산하여 true로 만드는 방법의 수
+
 F(i,j) = A[i...j] 까지를 계산하여 false로 만드는 방법의 수
+
 L(i,j) = T(i,j) + F(i,j)
+
+```
 T(i,i) = A[i] == true ? 1 : 0
 F(i,i) = A[i] == false ? 0 : 1
 T(i,j) = sum(T(i,k)T(k+1,j), for i<=k<j, B[k]=='and')
