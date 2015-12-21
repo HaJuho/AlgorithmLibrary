@@ -23,10 +23,10 @@ static const int CD = 1;
 // C(0,0) = 0
 // C(0,j) = C(0,j-1) + CI = j * CI
 // C(i,0) = CD + C(i-1,0) = i * CD
-// C(i,j) = min(CD+C(i-1,j), C(i,j-1)+CI, C(i-1,j-1)) if i > 0, j > 0, A[i-1] == B[j-1]
-// C(i,j) = min(CD+C(i-1,j), C(i,j-1)+CI, C(i-1,j-1)+CR) if i > 0, j > 0, A[i-1] != B[j-1]
+// C(i,j) = min(CD+C(i-1,j), C(i,j-1)+CI, C(i-1,j-1)), if i > 0, j > 0, A[i-1] == B[j-1]
+// C(i,j) = min(CD+C(i-1,j), C(i,j-1)+CI, C(i-1,j-1)+CR), if i > 0, j > 0, A[i-1] != B[j-1]
 // 시간 복잡도 O(NM)
-// 공간 복잡도 O(NM). O(M)으로 줄일 수 있다.
+// 공간 복잡도 O(NM). 반복적 DP로 O(M) 또는 O(N) 최적화 가능
 
 // 1. 공간 O(NM)
 int cache1[MAXN + 1][MAXM + 1];
