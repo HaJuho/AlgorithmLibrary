@@ -4,17 +4,15 @@
 
 Subsequence는 연속으로 선택될 필요는 없다.
 
-C(i,j) = A[0...i-1]에서 찾은 B[0...j-1]와 같은 Subsuquence의 개수라고 하자.
+C(i,j) = A[0...i-1]에서 찾은 B[0...j-1]와 같은 Subsuquence의 개수
 
+```
 C(0,0) = 1
-
 C(i,0) = 1
-
 C(0,j) = 0
-
 C(i,j) = C(i-1,j-1) + C(i-1,j), if A[i-1] == B[j-1], i > 0, j > 0
-
 C(i,j) = C(i-1,j), if A[i-1] != B[j-1], i > 0, j > 0
+```
 
 시간 복잡도 O(NM)
 
