@@ -14,12 +14,13 @@ static const int MAXN = 100;
 static const int MAXT = 10000;
 
 // A[0...n-1]가 자연수의 집합일 때 합이 T인 부분집합이 있는지 찾기
-// B(k,t) = True if A[0...k-1]에서 합인 t인 부분집합이 있으면, else False
+// B(k,t) = A[0...k-1]에서 합인 t인 부분집합이 있는지 여부
 // B(0,0) = True
-// B(0,t) = False for t > 0
-// B(k,t) = B(k-1,t-A[k-1]) | B(k-1,t)
+// B(0,t) = False, if t > 0
+// B(k,t) = B(k-1,t), if k > 0, t < A[k-1]
+// B(k,t) = B(k-1,t-A[k-1]) | B(k-1,t), if k > 0, t >= A[k-1]
 // 시간복잡도 O(NT)
-// 공간복잡도 O(NT). O(T)로 줄일 수 있음
+// 공간복잡도 O(NT). 반복적 DP로 O(T) 최적화 가능
 
 // 1. 공간 O(NT)
 static bool cache1[MAXN + 1][MAXT + 1];

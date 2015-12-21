@@ -13,7 +13,7 @@ using namespace std;
 static const int MAXC = 10000;
 static const int MAXN = 100;
 
-// 가격 C를 n개의 동전 v[i](0<=i<n)로 환전하는 방법의 수는?
+// 가격 C를 n개의 동전 v[i] (0<=i<n)로 환전하는 방법의 수는?
 // 수분할과 비슷하게 풀어도 된다.
 // 여기서는 순차적 DP로 푼다.
 // B(i,k) = 0~i까지의 동전을 사용해 가격 k를 환전하는 방법의 수

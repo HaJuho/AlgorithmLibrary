@@ -18,11 +18,11 @@ static const int MAXM = 1000;
 // C(i,j) = A[0...i-1]에서 찾은 B[0...j-1]와 같은 Subsuquence의 개수라고 하자.
 // C(0,0) = 1
 // C(i,0) = 1
-// C(0,i) = 0
-// C(i,j) = C(i-1,j-1) + C(i-1,j) if i > 0, j > 0, A[i-1] == B[j-1]
-// C(i,j) = C(i-1,j) if i > 0, j > 0, A[i-1] != B[j-1]
+// C(0,j) = 0
+// C(i,j) = C(i-1,j-1) + C(i-1,j), if A[i-1] == B[j-1], i > 0, j > 0
+// C(i,j) = C(i-1,j), if A[i-1] != B[j-1], i > 0, j > 0
 // 시간 복잡도 O(NM)
-// 공간 복잡도 O(NM). O(M)으로 줄일 수 있음
+// 공간 복잡도 O(NM). 반복적 DP로 O(M) 최적화 가능
 
 // 1. 공간 O(NM)
 static int cache1[MAXN + 1][MAXM + 1];

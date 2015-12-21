@@ -12,9 +12,9 @@ C(0,j) = C(0,j-1) + CI = j * CI
 
 C(i,0) = CD + C(i-1,0) = i * CD
 
-C(i,j) = min(CD+C(i-1,j), C(i,j-1)+CI, C(i-1,j-1)), if i > 0, j > 0, A[i-1] == B[j-1]
+C(i,j) = min(CD+C(i-1,j), C(i,j-1)+CI, C(i-1,j-1)), if A[i-1] == B[j-1], i > 0, j > 0
 
-C(i,j) = min(CD+C(i-1,j), C(i,j-1)+CI, C(i-1,j-1)+CR), if i > 0, j > 0, A[i-1] != B[j-1]
+C(i,j) = min(CD+C(i-1,j), C(i,j-1)+CI, C(i-1,j-1)+CR), if A[i-1] != B[j-1], i > 0, j > 0
 
 시간 복잡도 O(NM)
 
