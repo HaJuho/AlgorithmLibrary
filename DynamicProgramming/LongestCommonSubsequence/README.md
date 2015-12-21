@@ -19,4 +19,4 @@ LCS(i,j) = max(LCS(i-1,j), LCS(i,j-1)), if A[i-1] != B[j-1], i > 0, j > 0
 
 시간복잡도 O(NM)
 
-공간복잡도 O(NM). 또는 O(N)이나 O(M)으로 줄일 수 있음
+공간복잡도 O(NM). 반복적 DP로 O(N) 또는 O(M) 최적화 가능

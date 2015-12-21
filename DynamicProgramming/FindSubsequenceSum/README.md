@@ -5,10 +5,10 @@ A[0...n-1]가 자연수의 집합일 때 합이 T인 부분집합이 있는지 찾기
 B(k,t) = A[0...k-1]에서 합인 t인 부분집합이 있는지 여부
 
 ```
-B(0,0) = True
-B(0,t) = False, if t > 0
-B(k,t) = B(k-1,t), if k > 0, t < A[k-1]
-B(k,t) = B(k-1,t-A[k-1]) | B(k-1,t), if k > 0, t >= A[k-1]
+B(0,0) = true
+B(0,t) = false, if t > 0
+B(k,t) = B(k-1,t), if t < A[k-1], k > 0
+B(k,t) = B(k-1,t) | B(k-1,t-A[k-1]), if t >= A[k-1], k > 0
 ```
 
 시간복잡도 O(NT)

@@ -15,12 +15,12 @@ L(i,j) = T(i,j) + F(i,j)
 ```
 T(i,i) = A[i] == true ? 1 : 0
 F(i,i) = A[i] == false ? 0 : 1
-T(i,j) = sum(T(i,k)T(k+1,j), for i<=k<j, B[k]=='and')
-       + sum(L(i,k)L(k+1,j)-F(i,k)F(k+1,j), for i<=k<j, B[k]=='or')
-       + sum(T(i,k)F(k+1,j)+F(i,k)T(k+1,j), for i<=k<j, B[k]=='xor')
-F(i,j) = sum(F(i,k)F(k+1,j), for i<=k<j, B[k]=='or')
-       + sum(L(i,k)L(k+1,j)-T(i,k)T(k+1,j), for i<=k<j, B[k]=='and')
-       + sum(T(i,k)F(k+1,j)+F(i,k)T(k+1,j), for i<=k<j, B[k]=='xor')
+T(i,j) = sum(T(i,k) * T(k+1,j), for i <= k < j, B[k] == 'and')
+       + sum(L(i,k) * L(k+1,j) - F(i,k) * F(k+1,j), for i <= k < j, B[k] == 'or')
+       + sum(T(i,k) * F(k+1,j) + F(i,k) * T(k+1,j), for i <= k < j, B[k] == 'xor')
+F(i,j) = sum(F(i,k) * F(k+1,j), for i <= k < j, B[k] == 'or')
+       + sum(L(i,k) * L(k+1,j) - T(i,k) * T(k+1,j), for i <= k < j, B[k] == 'and')
+       + sum(T(i,k) * F(k+1,j) + F(i,k) * T(k+1,j), for i <= k < j, B[k] == 'xor')
 ```
 
 시간 복잡도 O(N^3)

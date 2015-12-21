@@ -13,10 +13,10 @@ using namespace std;
 static const int MAXC = 10000;
 static const int MAXN = 100;
 
-// 배낭의 용량이 C이고, n개의 물품 각각의 무게가 w[i], 가치가 v[i] (0<=i<n) 일 때, 배낭에 담을 수 있는 물품의 최대 가치는?
+// 배낭의 용량이 C이고, n개의 물품 각각의 무게가 w[0...n-1], 가치가 v[0...n-1] 일 때, 배낭에 담을 수 있는 물품의 최대 가치는?
 // M(k) = 크기 k인 배낭에 담을 수 있는 최대 가치
 // M(0) = 0
-// M(k) = max(0, max(M(k-w[i]) + v[i], for 0<=i<n, w[i]<=k)), if k > 0
+// M(k) = max(0, max(M(k-w[i]) + v[i], for 0 <= i < n, w[i] <= k)), if k > 0
 // 시간 복잡도 O(NC)
 // 공간 복잡도 O(C)
 

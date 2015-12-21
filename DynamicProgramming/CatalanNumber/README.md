@@ -2,7 +2,7 @@
 
 ```
 C(0) = 1
-C(n) = sum(C(i)*C(n-1-i), for 0<=i<n)
+C(n) = sum(C(i) * C(n-1-i), for 0 <= i < n)
 ```
 
 시간복잡도 O(N^2)
