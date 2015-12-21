@@ -18,7 +18,7 @@ static const int MAXM = 1000;
 // C(i,j) = A[0...i-1]에서 찾은 B[0...j-1]와 같은 Subsuquence의 개수
 // C(0,0) = 1
 // C(i,0) = 1
-// C(0,j) = 0
+// C(0,j) = 0, if j > 0
 // C(i,j) = C(i-1,j-1) + C(i-1,j), if A[i-1] == B[j-1], i > 0, j > 0
 // C(i,j) = C(i-1,j), if A[i-1] != B[j-1], i > 0, j > 0
 // 시간 복잡도 O(NM)

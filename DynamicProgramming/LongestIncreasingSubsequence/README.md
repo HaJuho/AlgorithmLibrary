@@ -10,7 +10,7 @@ B(k) = A[0...k]에서 A[k]로 끝나는 최장 부분 수열의 길이
 
 ```
 B(0) = 1
-B(k) = max(0, max(B(i), for i < k, A[i] < A[k])) + 1
+B(k) = max(0, max(B(i), for 0 <= i < k, A[i] < A[k])) + 1, if k > 0
 LIS(k) = max(B(i), for 0 <= i <= k)
 ```
 

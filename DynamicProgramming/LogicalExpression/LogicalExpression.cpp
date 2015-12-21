@@ -22,10 +22,10 @@ static const int MAXN = 100;
 // F(i,i) = A[i] == false ? 0 : 1
 // T(i,j) = sum(T(i,k) * T(k+1,j), for i <= k < j, B[k] == 'and')
 //        + sum(L(i,k) * L(k+1,j) - F(i,k) * F(k+1,j), for i <= k < j, B[k] == 'or')
-//        + sum(T(i,k) * F(k+1,j) + F(i,k) * T(k+1,j), for i <= k < j, B[k] == 'xor')
+//        + sum(T(i,k) * F(k+1,j) + F(i,k) * T(k+1,j), for i <= k < j, B[k] == 'xor'), if i < j
 // F(i,j) = sum(F(i,k) * F(k+1,j), for i <= k < j, B[k] == 'or')
 //        + sum(L(i,k) * L(k+1,j) - T(i,k) * T(k+1,j), for i <= k < j, B[k] == 'and')
-//        + sum(T(i,k) * F(k+1,j) + F(i,k) * T(k+1,j), for i <= k < j, B[k] == 'xor')
+//        + sum(T(i,k) * F(k+1,j) + F(i,k) * T(k+1,j), for i <= k < j, B[k] == 'xor'), if i < j
 // 시간 복잡도 O(N^3)
 // 공간 복잡도 O(N^2)
 static int cache1_t[MAXN + 1][MAXN + 1];

@@ -19,8 +19,8 @@ static const int MAXN = 100;
 // B(i,k) = v[0...i] 까지의 동전을 사용해 가격 k를 환전하는 방법의 수
 // B(0,k) = 1, if k % v[0] == 0
 // B(0,k) = 0, if k % v[0] != 0
-// B(i,k) = B(i-1,k), if k < v[i]
-// B(i,k) = B(i-1,k) + B(i,k-v[i]), if k >= v[i]
+// B(i,k) = B(i-1,k), if k < v[i], i > 0
+// B(i,k) = B(i-1,k) + B(i,k-v[i]), if k >= v[i], i > 0
 // 시간 복잡도 O(NC)
 // -> 모든 table을 순차적으로 다 채우므로 사실 불필요한 계산도 포함
 // -> 필요한 계산만 하려면 수분할에서 처럼 recursion과 memoization을 사용하면 됨.
@@ -70,8 +70,8 @@ int exchanges2(int V[], int n, int C)
 // D(i,k) = v[0...i] 까지의 동전을 사용해서 돈 k를 환전하는 가장 작은 동전의 수
 // D(0,k) = k / v[0], if k % v[0] == 0
 // D(0,k) = inf, if k % v[0] != 0
-// D(i,k) = D(i-1,k), if k < v[i]
-// D(i,k) = min(D(i-1,k), D(i,k-v[i]) + 1), if k >= v[i]
+// D(i,k) = D(i-1,k), if k < v[i], i > 0
+// D(i,k) = min(D(i-1,k), D(i,k-v[i]) + 1), if k >= v[i], i > 0
 // 시간 복잡도 O(NC)
 // 공간 복잡도 O(NC). 반복적 DP로 O(C) 최적화 가능
 static int cache3[MAXC + 1];
@@ -95,7 +95,7 @@ int optimal_exchange3(int V[], int n, int C)
 // E(k) = 돈 k를 환전하는 가장 작은 동전의 수
 // E(0) = 0
 // E(k) = inf, if k < 0
-// E(k) = min(E(k - v[i]), for 0 <= i < n) + 1
+// E(k) = min(E(k - v[i]), for 0 <= i < n) + 1, if k > 0
 // 시간 복잡도 O(NC)
 // 공간 복잡도 O(C)
 static int cache4[MAXC + 1];

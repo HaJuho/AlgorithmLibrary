@@ -21,8 +21,8 @@ static const int CD = 1;
 // 각 문자의 치환, 삽입, 삭제에 따른 비용이 CR, CI, CD로 주어진다.
 // C(i,j) = A[0...i-1]을 B[0...j-1]로 변경할 때의 최소 비용
 // C(0,0) = 0
-// C(0,j) = C(0,j-1) + CI = j * CI
-// C(i,0) = CD + C(i-1,0) = i * CD
+// C(0,j) = C(0,j-1) + CI = j * CI, if j > 0
+// C(i,0) = CD + C(i-1,0) = i * CD, if i > 0
 // C(i,j) = min(CD+C(i-1,j), C(i,j-1)+CI, C(i-1,j-1)), if A[i-1] == B[j-1], i > 0, j > 0
 // C(i,j) = min(CD+C(i-1,j), C(i,j-1)+CI, C(i-1,j-1)+CR), if A[i-1] != B[j-1], i > 0, j > 0
 // 시간 복잡도 O(NM)

@@ -9,10 +9,10 @@ Palindrome은 왼쪽에서 읽을 때와 오른쪽에서 읽을 때 같은 문자열(수열)
 B(i,j) = A[i...j]이 회문이면 true, 아니면 false
 
 ```
-B(i,j) = true, if i > j
 B(i,i) = true
-B(i,j) = B(i+1,j-1), if A[i] == A[j], i < j
-B(i,j) = false, if A[i] != A[j], i < j
+B(i,i+1) = A[i] == A[i+1] ? true : false
+B(i,j) = B(i+1,j-1), if A[i] == A[j], i + 1 < j
+B(i,j) = false, if A[i] != A[j], i + 1 < j
 ```
 
 시간 복잡도 O(N^2)
