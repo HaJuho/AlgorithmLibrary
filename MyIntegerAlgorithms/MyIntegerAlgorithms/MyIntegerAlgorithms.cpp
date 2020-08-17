@@ -414,7 +414,7 @@ void stable_sort(int* begin, int* end)
 	int* buf = new int[end - begin];
 	if (buf) {
 		merge_sort(begin, end, buf);
-		delete buf;
+		delete[] buf;
 	}
 }
 
