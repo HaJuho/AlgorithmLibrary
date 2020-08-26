@@ -1,5 +1,5 @@
-﻿#ifndef __ENUMERATE_REP_PERMUTATION_HPP__
-#define __ENUMERATE_REP_PERMUTATION_HPP__
+﻿#ifndef __ENUMERATE_PERMUTATION_REPETITION_H__
+#define __ENUMERATE_PERMUTATION_REPETITION_H__
 
 template<typename RandomIterator, typename Predicate>
 class EnumerateRepPermutation {
@@ -43,4 +43,4 @@ bool enumerate_rep_perm(RandomIterator begin, RandomIterator end, int r, Predica
 	return erp.enumerate_rep_perm();
 }
 
-#endif /* __ENUMERATE_REP_PERMUTATION_HPP__ */
+#endif  // __ENUMERATE_PERMUTATION_REPETITION_H__

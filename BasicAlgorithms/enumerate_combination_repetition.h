@@ -1,5 +1,5 @@
-﻿#ifndef __ENUMERATE_REP_COMBINATION_HPP__
-#define __ENUMERATE_REP_COMBINATION_HPP__
+﻿#ifndef __ENUMERATE_COMBINATION_REPETITION_H__
+#define __ENUMERATE_COMBINATION_REPETITION_H__
 
 template<typename RandomIterator, typename Predicate>
 class EnumerateRepCombination {
@@ -43,4 +43,4 @@ bool enumerate_rep_comb(RandomIterator begin, RandomIterator end, int r, Predica
 	return ec.enumerate_rep_comb();
 }
 
-#endif /* __ENUMERATE_REP_COMBINATION_HPP__ */
+#endif  // __ENUMERATE_COMBINATION_REPETITION_H__

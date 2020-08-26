@@ -1,5 +1,5 @@
-﻿#ifndef __ENUMERATE_PERMUTATION_HPP__
-#define __ENUMERATE_PERMUTATION_HPP__
+﻿#ifndef __ENUMERATE_PERMUTATION_H__
+#define __ENUMERATE_PERMUTATION_H__
 
 #include <algorithm>
 
@@ -69,4 +69,4 @@ bool next_perm(RandomIterator begin, RandomIterator end)
 	}
 }
 
-#endif /* __ENUMERATE_PERMUTATION_HPP__ */
+#endif  // __ENUMERATE_PERMUTATION_H__

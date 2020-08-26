@@ -1,5 +1,5 @@
-﻿#ifndef __ENUMERATE_SUBSETS_HPP__
-#define __ENUMERATE_SUBSETS_HPP__
+﻿#ifndef __ENUMERATE_SUBSETS_H__
+#define __ENUMERATE_SUBSETS_H__
 
 template<typename RandomIterator, typename Predicate>
 class EnumerateSubsets {
@@ -38,4 +38,4 @@ bool enumerate_subsets(RandomIterator begin, RandomIterator end, int r, Predicat
 	return ec.enumerate_subsets();
 }
 
-#endif /* __ENUMERATE_SUBSETS_HPP__ */
+#endif  // __ENUMERATE_SUBSETS_H__

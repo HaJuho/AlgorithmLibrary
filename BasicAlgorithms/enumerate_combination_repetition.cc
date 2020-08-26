@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <vector>
 
-#include "EnumerateCombination.hpp"
+#include "enumerate_combination_repetition.h"
 
 using namespace std;
 
@@ -45,12 +45,12 @@ int main(int argc, char* argv[])
 {
 	vector<string> arr1 = { "1", "2", "3", "4", "5" };
 	JustPrint1 just_print1;
-	enumerate_comb(arr1.begin(), arr1.end(), 3, just_print1);
+	enumerate_rep_comb(arr1.begin(), arr1.end(), 3, just_print1);
 	cout << just_print1.count << endl;
 
 	string arr2[] = { "10", "9", "8", "7", "6" };
 	JustPrint<string*> just_print2;
-	enumerate_comb(arr2, arr2 + 5, 7, just_print2);
+	enumerate_rep_comb(arr2, arr2 + 5, 2, just_print2);
 	cout << just_print2.count << endl;
 
 	return 0;
