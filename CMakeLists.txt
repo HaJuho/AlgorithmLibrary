@@ -2,6 +2,6 @@
 
 project ("AlgorithmLibrary")
 
-add_subdirectory (BasicAlgorithms)
+add_subdirectory ("basic_algorithms")
 
-add_subdirectory (IntegerAlgorithms)
+add_subdirectory ("integer_algorithms")
